@@ -84,29 +84,48 @@ document.addEventListener('DOMContentLoaded', () => {
     animateElements.forEach(el => observer.observe(el));
 });
 
-// Contact form handling
+// Initialize EmailJS
+(function() {
+    emailjs.init('_DRxzcYSiNbCoh6x1'); // Your public key
+})();
+
+// Contact form handling with EmailJS
 const contactForm = document.getElementById('contactForm');
 contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
     
+    // Show loading state
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Enviando...';
+    submitBtn.disabled = true;
+    
     // Get form data
     const formData = new FormData(contactForm);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const subject = formData.get('subject');
-    const message = formData.get('message');
+    const templateParams = {
+        to_email: 'ricardojps@outlook.es',
+        from_name: formData.get('name'),
+        from_email: formData.get('email'),
+        subject: formData.get('subject'),
+        message: formData.get('message')
+    };
     
-    // Create mailto link
-    const mailtoLink = `mailto:ricardojps@outlook.es?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`)}`;
-    
-    // Open email client
-    window.location.href = mailtoLink;
-    
-    // Show success message
-    showNotification('¡Mensaje enviado! Se abrirá tu cliente de email.', 'success');
-    
-    // Reset form
-    contactForm.reset();
+    // Send email using EmailJS
+    emailjs.send('service_6hf0nul', 'template_qpfyzjt', templateParams)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            showNotification('¡Mensaje enviado exitosamente! Te responderé pronto.', 'success');
+            contactForm.reset();
+        })
+        .catch(function(error) {
+            console.log('FAILED...', error);
+            showNotification('Error al enviar el mensaje. Por favor, intenta de nuevo.', 'error');
+        })
+        .finally(function() {
+            // Restore button state
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        });
 });
 
 // Notification system
