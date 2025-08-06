@@ -1,3 +1,8 @@
+:root {
+    --fondo-morado: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -230,29 +235,351 @@ body {
     align-items: center;
 }
 
-.hero-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px);
-    border-radius: 20px;
-    padding: 3rem;
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+.hero-photo-container {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    transition: transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 50%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hero-photo-container:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    border: 8px solid white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hero-photo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 2rem;
+    color: white;
+    transform: translateY(100%);
     transition: transform 0.3s ease;
 }
 
-.hero-card:hover {
-    transform: translateY(-10px);
+.hero-photo-container:hover .hero-photo-overlay {
+    transform: translateY(0);
 }
 
-.hero-card i {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    color: #ffffff;
-}
-
-.hero-card h3 {
-    font-size: 1.5rem;
+.overlay-text h3 {
+    font-size: 1.3rem;
     font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.overlay-text p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.hero-photo-container:hover .hero-photo {
+    transform: scale(1.05);
+}
+
+/* Portfolio Invitation Section */
+
+/* Behance screenshot inside portfolio card */
+.behance-screenshot {
+    width: 100%;
+    overflow: hidden;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.behance-image {
+    width: 100%;
+    height: 260px;
+    display: block;
+    object-fit: cover;
+    object-position: left center;
+}
+.portfolio-invite {
+    padding: 120px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    color: #1e293b;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.portfolio-invite::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+    opacity: 0.3;
+}
+
+.portfolio-invite-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.portfolio-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    display: inline-block;
+}
+
+.portfolio-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #4f46e5, #7c3aed);
+    border-radius: 2px;
+}
+
+.portfolio-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    color: #4b5563;
+    max-width: 90%;
+    font-weight: 400;
+}
+
+.portfolio-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
+    max-width: 90%;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.05rem;
+    color: #374151;
+    background: white;
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.feature-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.feature-item i {
+    font-size: 1.2rem;
+    color: #ffd700;
+}
+
+.feature-item span {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.portfolio-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+}
+
+.portfolio-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+    background: linear-gradient(45deg, #ff5252, #d63031);
+}
+
+.portfolio-btn i:first-child {
+    font-size: 1.3rem;
+}
+
+.portfolio-btn i:last-child {
+    font-size: 0.9rem;
+}
+
+.portfolio-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.portfolio-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.1), 
+                0 10px 30px -10px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 420px;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: rotateY(-8deg) rotateX(8deg) translateZ(0);
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.portfolio-card:hover {
+    transform: rotateY(-5deg) rotateX(5deg) translateY(-15px) translateZ(20px);
+    box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.15), 
+                0 25px 50px -10px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background: #f8f9fa;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.card-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot.red {
+    background: #ff5f56;
+}
+
+.dot.yellow {
+    background: #ffbd2e;
+}
+
+.dot.green {
+    background: #27ca3f;
+}
+
+.card-title {
+    font-size: 0.9rem;
+    color: #6c757d;
+    font-family: 'Courier New', monospace;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.project-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.preview-item {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.preview-image {
+    width: 50px;
+    height: 40px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.preview-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.text-line {
+    height: 8px;
+    background: #dee2e6;
+    border-radius: 4px;
+}
+
+.text-line.short {
+    width: 60%;
+}
+
+/* Responsive Design for Portfolio Section */
+@media (max-width: 768px) {
+    .portfolio-invite-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .portfolio-title {
+        font-size: 2rem;
+    }
+    
+    .portfolio-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .portfolio-card {
+        transform: none;
+    }
+    
+    .portfolio-card:hover {
+        transform: scale(1.02);
+    }
 }
 
 /* Section Styles */
@@ -295,7 +622,7 @@ section:first-of-type {
 
 .about-content {
     display: grid;
-    grid-template-columns: 2fr 1fr 300px;
+    grid-template-columns: 300px 2fr 1fr;
     gap: 4rem;
     align-items: center;
 }
@@ -314,6 +641,7 @@ section:first-of-type {
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
 }
 
 .image-container:hover {
@@ -324,8 +652,11 @@ section:first-of-type {
 .profile-photo {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
     transition: transform 0.3s ease;
+    filter: brightness(1.1) contrast(1.05);
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
 }
 
 .image-overlay {
@@ -334,12 +665,13 @@ section:first-of-type {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.8), rgba(118, 75, 162, 0.8));
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.7), rgba(118, 75, 162, 0.7));
     opacity: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: opacity 0.3s ease;
+    backdrop-filter: blur(2px);
 }
 
 .image-container:hover .image-overlay {
@@ -352,7 +684,8 @@ section:first-of-type {
 }
 
 .image-container:hover .profile-photo {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    filter: brightness(1.2) contrast(1.1);
 }
 
 .about-text p {
@@ -360,6 +693,7 @@ section:first-of-type {
     line-height: 1.8;
     color: #475569;
     margin-bottom: 2rem;
+    text-align: justify;
 }
 
 .about-info {
@@ -452,10 +786,7 @@ section:first-of-type {
     font-weight: 500;
 }
 
-/* Experience Section */
-.experience {
-    background: #f8fafc;
-}
+
 
 .timeline {
     position: relative;
