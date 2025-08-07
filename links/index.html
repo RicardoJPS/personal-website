@@ -47,6 +47,22 @@
 
         <div class="footer">
             <span>Foto de fondo por Maximalfocus en Unsplash</span>
+            <div id="contador">Visitas: cargando...</div>
+            <script type="module">
+              import { Counter } from 'https://cdn.jsdelivr.net/npm/counterapi/dist/counter.esm.min.js';
+            
+              const counter = new Counter({ workspace: 'team' });
+            
+              counter.up('ricardojpseslinks')
+                .then(result => {
+                  document.getElementById('contador').textContent = `Visitas: ${result.value}`;
+                })
+                .catch(error => {
+                  document.getElementById('contador').textContent = 'Error al cargar visitas';
+                  console.error(error);
+                });
+            </script>
+            
         </div>
     </div>
 
