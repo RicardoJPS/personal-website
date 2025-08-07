@@ -1,0 +1,330 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: url('maximalfocus-VT4rx775FT4-unsplash.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.container {
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 25px;
+    padding: 40px 30px;
+    width: 100vw;
+    max-width: 400px;
+    height: 100vh;
+    max-height: 900px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+/* .profile-section removed */
+.profile-section {
+    margin-bottom: 40px;
+}
+
+.profile-image-container {
+    position: relative;
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #667eea);
+    padding: 4px;
+    border-radius: 30px;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.profile-image-container:hover {
+    transform: scale(1.05);
+}
+
+.profile-image {
+    border-radius: 26px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.image-overlay::before {
+    content: "✱";
+    color: white;
+    font-size: 12px;
+}
+
+.name {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.description {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.social-icon:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.social-icon i {
+    color: white;
+    font-size: 18px;
+}
+
+.links-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.link-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 18px 25px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.link-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.link-item i:first-child {
+    font-size: 20px;
+    width: 24px;
+}
+
+.link-item span {
+    flex: 1;
+    text-align: left;
+    margin-left: 15px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.link-item i:last-child {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.connect-section {
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+
+.connect-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 12px 20px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.connect-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-1px);
+}
+
+.footer {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: auto;
+    padding-bottom: 10px;
+}
+
+.footer span {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.footer span:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#visitor-counter-img {
+    height: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .hero { height: 320px; width: 100vw; margin-left: -50vw; left: 50%; transform: translateX(0); }
+    .hero-content { bottom: 4%; }
+
+    .container {
+        border-radius: 0;
+        width: 100vw;
+        height: 100vh;
+        max-width: none;
+        max-height: none;
+        padding: 40px 25px;
+        margin: 0;
+    }
+    
+    .profile-image-container {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .name {
+        font-size: 26px;
+    }
+    
+    .description {
+        font-size: 15px;
+    }
+    
+    .link-item {
+        padding: 16px 20px;
+        font-size: 15px;
+    }
+}
+
+/* Desktop adjustments */
+@media (min-width: 481px) {
+    .container {
+        border-radius: 25px;
+        max-width: 400px;
+        max-height: 900px;
+    }
+}
+
+.hero {
+    position: relative;
+    width: calc(100% + 60px);
+    margin-left: -30px;
+    margin-top: -40px;
+
+    height: 380px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 25px 25px 0 0;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.95) 100%);
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.hero-content .name { 
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.hero-content .description {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Animation for page load */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.link-item {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.link-item:nth-child(1) { animation-delay: 0.1s; }
+.link-item:nth-child(2) { animation-delay: 0.2s; }
+.link-item:nth-child(3) { animation-delay: 0.3s; }
